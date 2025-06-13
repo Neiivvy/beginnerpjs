@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple example of using API</title>
+    <style>
+        body{
+        
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .bar {
+            background-color: rgb(168, 202, 231);
+            padding:30px;
+            height:300px;
+            width:400px;
+        
+        }
+      
+
+        #box {
+            border: 2px solid rgb(10, 14, 10);
+            margin-bottom: 20px;
+            display: inline-block
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <h2 style="text-align: center; color:white;">Pokemon` 🅿️</h2>
+        <div id="box">
+            <input type="text" id="pokemon" placeholder="Name a Pokemon`" />
+        </div>
+        <div><button onclick="getPokemon()">SHOW THE POKEMON</button></div>
+        <span>
+            <img src="" alt="image part" id="pokemonImage" style="display:none;">
+       </span>
+    </div>
+    <script src="simple-API-pokemon.js"></script>
+</body>
+
+</html>

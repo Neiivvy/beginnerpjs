@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Profile Dashboard</title>
+</head>
+<style>
+  /* General page style */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background-color: #0077cc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+  }
+
+  section, article, aside {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    color: #0077cc;
+    border-bottom: 2px solid #0077cc;
+    padding-bottom: 5px;
+  }
+
+  img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+
+  th {
+    background-color: #e0f0ff;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  input, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #005fa3;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+  }
+
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<body>
+
+  <header>
+    <h1>Welcome to My Dashboard</h1>
+    <nav>
+      <a href="#about">About</a> |
+      <a href="#hobbies">Hobbies</a> |
+      <a href="#feedback">Feedback</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <img src="me.jpg" alt="My portrait" width="150" />
+      <p>Hi, I'm Alex! I love coding, music, and movies.</p>
+
+      <audio controls>
+        <source src="intro.mp3" type="audio/mpeg" />
+        Your browser does not support audio.
+      </audio>
+
+      <video controls width="300">
+        <source src="intro.mp4" type="video/mp4" />
+        <track src="captions.vtt" kind="captions" srclang="en" label="English">
+        Your browser does not support video.
+      </video>
+    </section>
+
+    <!-- Table Section -->
+    <article id="hobbies">
+      <h2>My Hobbies</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th scope="col">Hobby</th>
+            <th scope="col">Skill Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Playing Guitar</td>
+            <td>Intermediate</td>
+          </tr>
+          <tr>
+            <td>Coding</td>
+            <td>Advanced</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- Sidebar -->
+    <aside>
+      <h3>Did you know?</h3>
+      <p>I once built a game using just HTML, CSS, and JavaScript!</p>
+    </aside>
+
+    <!-- Accessible Form -->
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <form>
+        <label for="name">Your Name:</label>
+        <input id="name" type="text" name="name" required /><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alex's Dashboard</p>
+  </footer>
+
+</body>
+</html>
