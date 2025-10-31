@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passing Components Example</title>
+</head>
+<body>
+  <p id="content"></p>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    function Parent() {
+      const favFruit = "papaya";
+      const person = {
+        name: "Ivy",
+        age: 11,
+        isStudent: true,
+        hobbies: ["coding", "dancing", "playing"],
+        address: { city: "Kathmandu", country: "Nepal" }
+      };
+      const fruits = ["mango", "papaya", "apple"];
+
+      function message(msg) {
+        alert(`Message from the child: ${msg}`);
+      }
+
+      return (
+        <>
+          <Child
+            name="neii"
+            id={1}
+            isFemale={true}
+            fruit={favFruit}
+            person={person}
+            fruits={fruits}
+            msgChild={message}
+          />
+
+          <hr />
+          <h3>Passing Components as Props</h3>
+
+          {/*  1. Pass component reference */}
+          <CompChild1 Comp={Component1} />
+
+          {/*  2. Pass component as JSX (using children) */}
+          <CompChild2>
+            <Component2 />
+          </CompChild2>
+
+          {/*  3. Pass component as JSX prop */}
+          <CompChild3 Comp3={<Component3 />} />
+        </>
+      );
+    }
+
+    function Component1() {
+      return <p>Passing the component reference (function itself)</p>;
+    }
+
+    function Component2() {
+      return <p>Passing a component as JSX (using children)</p>;
+    }
+
+    function Component3() {
+      return <p>Passing a component as JSX prop (not as children)</p>;
+    }
+
+    function Child(props) {
+      return (
+        <>
+          <b>1. Props as plain string, number, boolean</b>
+          <p>
+            {`Hello ${props.name}, your id is ${props.id} and you are ${
+              props.isFemale ? "Female" : "Male"
+            }`}
+          </p>
+
+          <b>2. Props as variables</b>
+          <p>Your favourite fruit is {props.fruit}</p>
+
+          <b>3. Props as objects</b>
+          <p>{`This is an object person with name: ${props.person.name}, hobbies: ${props.person.hobbies}`}</p>
+
+          <b>4. Props as arrays</b>
+          <p>{`Array of fruits using separator: ${props.fruits.join("--")}`}</p>
+          <p>Arrays as list of fruits:</p>
+          <ol>
+            {props.fruits.map((fruit, index) => (
+              <li key={index}>{fruit}</li>
+            ))}
+          </ol>
+
+          <b>5. Props as functions</b>
+          <p>
+            <button onClick={() => props.msgChild("hello")}>Click Me</button>
+          </p>
+        </>
+      );
+    }
+
+    //  1. Component Reference
+    function CompChild1({ Comp }) {
+      return (
+        <>
+          <b>Component as Reference</b>
+          <ul>
+            <li><Comp /></li>
+          </ul>
+        </>
+      );
+    }
+
+    //  2. Component as Children
+    function CompChild2({ children }) {
+      return (
+        <>
+          <b>Component as Children</b>
+          <ul>
+            <li>{children}</li>
+          </ul>
+        </>
+      );
+    }
+
+    //  3. Component as JSX prop
+    function CompChild3({ Comp3 }) {
+      return (
+        <>
+          <b>Component as JSX Prop</b>
+          <ul>
+            <li>{Comp3}</li>
+          </ul>
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("content"));
+    root.render(<Parent />);
+  </script>
+</body>
+</html>

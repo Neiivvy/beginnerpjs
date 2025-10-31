@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile card</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div id="root"></div>
+
+      <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+
+function Parent(){
+
+    //object
+const users = [
+  {
+    user: {
+      name: "Neii",
+      age: 21,
+      isFemale: true,
+      hobbies: ["playing", "coding", "writing"],
+      about: {
+        favNumber: 11,
+        isF1Fan: true,
+        favFruit: "Papaya",
+        details: [1, "green", "loves to code"]
+      }
+    },
+    isStudent: true
+  },
+  {
+    user: {
+      name: "Ivy",
+      age: 20,
+      isFemale: false,
+      hobbies: ["reading", "dancing", "traveling"],
+      about: {
+        favNumber: 7,
+        isF1Fan: false,
+        favFruit: "Mango",
+        details: [2, "blue", "enjoys chess"]
+      }
+    },
+    isStudent: true
+  },
+  {
+    user: {
+      name: "Sita",
+      age: 22,
+      isFemale: true,
+      hobbies: ["painting", "music", "yoga"],
+      about: {
+        favNumber: 3,
+        isF1Fan: true,
+        favFruit: "Apple",
+        details: [3, "red", "likes running"]
+      }
+    },
+    isStudent: false
+  },
+  {
+    user: {
+      name: "Arjun",
+      age: 23,
+      isFemale: false,
+      hobbies: ["football", "coding", "traveling"],
+      about: {
+        favNumber: 5,
+        isF1Fan: false,
+        favFruit: "Banana",
+        details: [4, "yellow", "plays guitar"]
+      }
+    },
+    isStudent: false
+  },
+  {
+    user: {
+      name: "Anita",
+      age: 21,
+      isFemale: true,
+      hobbies: ["photography", "dancing", "music"],
+      about: {
+        favNumber: 9,
+        isF1Fan: true,
+        favFruit: "Papaya",
+        details: [5, "pink", "enjoys coding"]
+      }
+    },
+    isStudent: true
+  },
+  {
+    user: {
+      name: "Sanjay",
+      age: 22,
+      isFemale: false,
+      hobbies: ["reading", "football", "coding"],
+      about: {
+        favNumber: 8,
+        isF1Fan: false,
+        favFruit: "Apple",
+        details: [6, "blue", "loves chess"]
+      }
+    },
+    isStudent: false
+  },
+  {
+    user: {
+      name: "Maya",
+      age: 20,
+      isFemale: true,
+      hobbies: ["writing", "music", "traveling"],
+      about: {
+        favNumber: 6,
+        isF1Fan: true,
+        favFruit: "Banana",
+        details: [7, "green", "enjoys hiking"]
+      }
+    },
+    isStudent: true
+  },
+  {
+    user: {
+      name: "Dipak",
+      age: 23,
+      isFemale: false,
+      hobbies: ["gaming", "reading", "chess"],
+      about: {
+        favNumber: 10,
+        isF1Fan: false,
+        favFruit: "Mango",
+        details: [8, "red", "plays football"]
+      }
+    },
+    isStudent: false
+  },
+  {
+    user: {
+      name: "Laxmi",
+      age: 21,
+      isFemale: true,
+      hobbies: ["cooking", "painting", "music"],
+      about: {
+        favNumber: 4,
+        isF1Fan: true,
+        favFruit: "Orange",
+        details: [9, "yellow", "loves reading"]
+      }
+    },
+    isStudent: true
+  },
+  {
+    user: {
+      name: "Ramesh",
+      age: 24,
+      isFemale: false,
+      hobbies: ["traveling", "cooking", "gaming"],
+      about: {
+        favNumber: 2,
+        isF1Fan: false,
+        favFruit: "Orange",
+        details: [10, "green", "enjoys coding"]
+      }
+    },
+    isStudent: false
+  },
+  {
+    user: {
+      name: "Neha",
+      age: 22,
+      isFemale: true,
+      hobbies: ["yoga", "painting", "music"],
+      about: {
+        favNumber: 1,
+        isF1Fan: true,
+        favFruit: "Apple",
+        details: [11, "pink", "loves travel"]
+      }
+    },
+    isStudent: true
+  }
+];
+
+
+    //function 
+    function message(msg){
+        alert(`Message: ${msg}`);
+        
+    }
+
+    return(
+        <>
+        {users.map((data, index)=>(
+          <ProfileCard key ={index} obj ={data.user} isStudent={data.isStudent} messagec ={message}/>
+    ))}
+        </>
+    );
+}
+
+//component hobby list
+function HobbyList({list}){
+    return(
+        <>
+        <ol className="hobby-list">
+ {list.map((hobby, index) => (
+  <li key={index}>{hobby}</li>
+))}
+
+            </ol>
+        
+        </>
+    );
+}
+
+
+
+//component profile card
+function ProfileCard(props){
+return(
+   <div className = "profile-card">
+    <h2>Profile card</h2>
+    <p>Name: {props.obj.name}</p>
+    <p>Age: {props.obj.age}</p>
+    <p>Gender: {props.obj.isFemale? "Female": "Male"}</p>
+    <p>Hobbies:</p> <HobbyList list= {props.obj.hobbies}/>
+    <p>About:Is {props.obj.about.isF1Fan?"Formula1 fan": "not a f1 fan"}.Fav number is {props.obj.about.favNumber} and favourite fruit is {[props.obj.about.favFruit]}.</p>
+    <p>Details: </p>
+        <ul>
+            <li>Id : {props.obj.about.details[0]}</li>
+            <li>Favourite Color: {props.obj.about.details[1]}</li>
+            <li>Activity: {props.obj.about.details[2]}</li>
+            </ul>
+
+            <button onClick ={()=>props.messagec(`Hello, this is ${props.obj.name} from child and i am ${props.isStudent? "a student": "not a student"}`)}>Send message </button>
+
+         
+    </div>
+);
+}
+
+
+
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<Parent />);
+  </script>
+
+</body>
+</html>

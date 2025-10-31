@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+</head>
+<body>
+<div id="calculator">
+    <input id="display">
+    <div id="keys">
+        <button onclick="button_click('+')" class="operator-button">+</button>
+        <button onclick="button_click('7')">7</button>
+        <button onclick="button_click('8')">8</button>
+        <button onclick="button_click('9')">9</button>
+        <button onclick="button_click('-')" class="operator-button">-</button>
+        <button onclick="button_click('4')">4</button>
+        <button onclick="button_click('5')">5</button>
+        <button onclick="button_click('6')">6</button>
+        <button onclick="button_click('*')" class="operator-button">*</button>
+        <button onclick="button_click('1')">1</button>
+        <button onclick="button_click('2')">2</button>
+        <button onclick="button_click('3')">3</button>
+        <button onclick="button_click('/')" class="operator-button">/</button>
+        <button onclick="button_click('0')">0</button>
+        <button onclick="button_click('.')">.</button>
+
+        <button onclick="calculate()">=</button>
+        <button onclick="clearDisplay()" class="operator-button">C</button>
+        <button onclick="backspace()">B</button>
+
+    
+
+    </div>
+</div>
+<script src="Calculator.js"></script>
+</body>
+</html>

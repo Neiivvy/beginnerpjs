@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React basics with external library</title>
+</head>
+<body>
+    <div class="container"></div>
+    <div id="para"></div>
+  
+    
+
+    <!-- link for react from external source -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- link for jsx translator -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        //where to render, the DOM element
+       const element = document.querySelector('.container');
+       //creating a jsx element storing it in a variable
+       const jsxElement = <h1>This is a simple JSX element.</h1>
+       //connect react with the DOM
+       //    ReactDOM.createRoot(element).render("This is a simple React element.");
+       //ReactDOM.createRoot("document.getElementById('root')/variable it is stored in).render(jsxElement/component);")
+    //    ReactDOM.createRoot(element).render(jsxElement);
+
+    //using div
+    const div = (
+        <div>
+            <p>Cotton socks</p>
+            <p>price: $10</p>
+            <button>Add to cart</button>
+        </div>
+    );
+    //using fragment
+    const frag = (
+        <>
+        <p>This is the use of fragment</p>
+        <h2>This is a heading inside a fragment</h2>
+        </>
+    )
+
+    ReactDOM.createRoot(document.getElementById('para')).render(frag);
+
+
+
+
+    </script>
+
+</body>
+</html>
